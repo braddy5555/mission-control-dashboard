@@ -42,4 +42,6 @@ coverage/
 # Misc
 .cache/
 dist/
-build/
+build/.credentials/
+upload_*.py
+data/
