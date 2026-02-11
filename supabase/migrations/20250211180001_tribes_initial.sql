@@ -169,3 +169,4 @@ ALTER PUBLICATION supabase_realtime ADD TABLE communities;
 ALTER PUBLICATION supabase_realtime ADD TABLE members;
 ALTER PUBLICATION supabase_realtime ADD TABLE activities;
 ALTER PUBLICATION supabase_realtime ADD TABLE posts;
+-- Deployment attempt Wed Feb 11 19:02:52 UTC 2026
