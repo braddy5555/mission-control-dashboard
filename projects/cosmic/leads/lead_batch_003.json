@@ -1,0 +1,27 @@
+[
+  {
+    "id": "lead_008",
+    "source": "LinkedIn",
+    "company": "Bouwwerken DL",
+    "contact": "Jonathan Jacobs",
+    "url": "https://be.linkedin.com/in/website-laten-maken-antwerpen",
+    "location": "Brugge, BE",
+    "pain_signal": "Net nieuwe website ontwikkeld, maar zoekt continue nieuwe klanten",
+    "opportunity": "AI-gegenereerde SEO content voor aannemers",
+    "priority": "medium",
+    "status": "identified",
+    "date_found": "2026-02-08T21:45:00Z"
+  },
+  {
+    "id": "lead_009",
+    "source": "LinkedIn",
+    "company": "Moon Tummers Webdesign",
+    "url": "https://www.linkedin.com/in/moontummers/",
+    "location": "Cultuur/Educatie sector",
+    "pain_signal": "Uniek design voor culturele sector - schaalbaarheidsproblemen",
+    "opportunity": "AI tools voor sneller uniek design genereren",
+    "priority": "low",
+    "status": "identified",
+    "date_found": "2026-02-08T21:45:00Z"
+  }
+]

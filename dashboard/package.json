@@ -1,0 +1,14 @@
+{
+  "name": "mission-control-dashboard",
+  "version": "1.0.0",
+  "description": "Real-time dashboard for all projects",
+  "main": "api-server.js",
+  "scripts": {
+    "start": "node api-server.js",
+    "dev": "node api-server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "pg": "^8.18.0"
+  }
+}

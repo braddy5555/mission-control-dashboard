@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px 40px;
+            border-bottom: 3px solid #e94560;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1em;
+        }
+        .container {
+            padding: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #2a2a4a;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: #e94560;
+            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.2);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 1.5em;
+            color: #fff;
+        }
+        .status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .status.active {
+            background: #00d9ff;
+            color: #000;
+        }
+        .status.pending {
+            background: #ffd700;
+            color: #000;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .metric {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .metric-label {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+        }
+        .metric-change {
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        .positive { color: #00ff88; }
+        .negative { color: #ff4757; }
+        .quick-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .quick-link {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid #e94560;
+            transition: all 0.3s;
+        }
+        .quick-link:hover {
+            background: #e94560;
+            color: #fff;
+        }
+        .timestamp {
+            text-align: right;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+        .nav-bar {
+            background: #0f0f1a;
+            padding: 15px 40px;
+            display: flex;
+            gap: 30px;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        .nav-item {
+            color: #888;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #e94560;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #e94560;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .error {
+            color: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MISSION CONTROL</h1>
+        <div class="subtitle">Real-time Project Intelligence Dashboard</div>
+    </div>
+    
+    <div class="nav-bar">
+        <a href="#overview" class="nav-item active">Overview</a>
+        <a href="#websites" class="nav-item">Websites</a>
+        <a href="#social" class="nav-item">Social Media</a>
+        <a href="#trading" class="nav-item">Trading</a>
+        <a href="#leads" class="nav-item">Leads</a>
+    </div>
+
+    <div class="container">
+        <div class="grid" id="dashboard-grid">
+            <!-- Cosmic Puppies -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🐕 Cosmic Puppies</div>
+                    <span class="status active">LIVE</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Website Visitors</div>
+                        <div class="metric-value" data-key="cosmicPuppies.visitors">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Conversions</div>
+                        <div class="metric-value" data-key="cosmicPuppies.conversions">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Revenue</div>
+                        <div class="metric-value" data-key="cosmicPuppies.revenue">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Leads Generated</div>
+                        <div class="metric-value" data-key="cosmicPuppies.leads">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="http://165.22.194.60:8080" class="quick-link" target="_blank">View Website</a>
+                    <a href="#" class="quick-link" onclick="viewDetails('cosmic')">Details</a>
+                </div>
+            </div>
+
+            <!-- Tribes -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">👥 Tribes</div>
+                    <span class="status active">LIVE</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Active Tribes</div>
+                        <div class="metric-value" data-key="tribes.activeTribes">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Total Members</div>
+                        <div class="metric-value" data-key="tribes.totalMembers">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Engagement Rate</div>
+                        <div class="metric-value" data-key="tribes.engagementRate">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Monthly Revenue</div>
+                        <div class="metric-value" data-key="tribes.monthlyRevenue">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="http://165.22.194.60:8083" class="quick-link" target="_blank">View Website</a>
+                    <a href="#" class="quick-link" onclick="viewDetails('tribes')">Details</a>
+                </div>
+            </div>
+
+            <!-- AI Personas -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🤖 AI Personas (Emma)</div>
+                    <span class="status active">ACTIVE</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Instagram Followers</div>
+                        <div class="metric-value" data-key="aiPersonas.instagramFollowers">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Total Posts</div>
+                        <div class="metric-value" data-key="aiPersonas.totalPosts">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Avg Likes/Post</div>
+                        <div class="metric-value" data-key="aiPersonas.avgLikes">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Engagement Rate</div>
+                        <div class="metric-value" data-key="aiPersonas.engagementRate">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="/projects/ai-personas/EMMA_CONTENT_PROTOCOL_V2.md" class="quick-link">Content Protocol</a>
+                    <a href="#" class="quick-link" onclick="viewDetails('emma')">Details</a>
+                </div>
+            </div>
+
+            <!-- Trading -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📈 Trading</div>
+                    <span class="status pending">MONITORING</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Portfolio Value</div>
+                        <div class="metric-value" data-key="trading.portfolioValue">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Active Positions</div>
+                        <div class="metric-value" data-key="trading.activePositions">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">24h P&L</div>
+                        <div class="metric-value" data-key="trading.pnl24h">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Win Rate</div>
+                        <div class="metric-value" data-key="trading.winRate">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="/projects/trading" class="quick-link">Dashboard</a>
+                </div>
+            </div>
+
+            <!-- Leads Overview -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🎯 Leads Overview</div>
+                    <span class="status active">TRACKING</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Total Leads</div>
+                        <div class="metric-value" data-key="leads.total">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Qualified</div>
+                        <div class="metric-value" data-key="leads.qualified">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">In Negotiation</div>
+                        <div class="metric-value" data-key="leads.inNegotiation">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Conversion Rate</div>
+                        <div class="metric-value" data-key="leads.conversionRate">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="/projects/cosmic/DROPSHIPPER_PROSPECT_LIST.md" class="quick-link">Dropshippers</a>
+                    <a href="/projects/cosmic/leads" class="quick-link">All Leads</a>
+                </div>
+            </div>
+
+            <!-- System Health -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⚡ System Health</div>
+                    <span class="status active">OPERATIONAL</span>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Active Containers</div>
+                        <div class="metric-value" data-key="system.activeContainers">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Uptime</div>
+                        <div class="metric-value" data-key="system.uptimePercent">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">API Calls (24h)</div>
+                        <div class="metric-value" data-key="system.apiCalls24h">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Errors (24h)</div>
+                        <div class="metric-value" data-key="system.errors24h">-</div>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="#" class="quick-link" onclick="refreshData()">↻ Refresh</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="timestamp">
+            Last updated: <span id="timestamp">-</span>
+        </div>
+    </div>
+
+    <script>
+        let currentData = {};
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/api/data');
+                currentData = await response.json();
+                updateDashboard(currentData);
+            } catch (e) {
+                console.error('Failed to fetch data:', e);
+                document.getElementById('timestamp').textContent = 'Error loading data';
+            }
+        }
+
+        function updateDashboard(data) {
+            // Update all elements with data-key attributes
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                const value = getNestedValue(data, key);
+                
+                if (key.includes('revenue') || key.includes('Value')) {
+                    el.textContent = typeof value === 'number' ? formatCurrency(value) : value;
+                } else if (key.includes('Rate') || key.includes('Rate')) {
+                    el.textContent = typeof value === 'number' ? value + '%' : value;
+                } else {
+                    el.textContent = value !== undefined ? value : '0';
+                }
+            });
+
+            // Update timestamp
+            document.getElementById('timestamp').textContent = new Date(data.timestamp).toLocaleString('nl-NL', {
+                dateStyle: 'full',
+                timeStyle: 'medium'
+            });
+        }
+
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => {
+                return current && current[key] !== undefined ? current[key] : undefined;
+            }, obj);
+        }
+
+        function formatCurrency(value) {
+            if (value < 1000) return '€' + value;
+            if (value < 1000000) return '€' + (value / 1000).toFixed(1) + 'k';
+            return '€' + (value / 1000000).toFixed(2) + 'M';
+        }
+
+        function refreshData() {
+            document.getElementById('timestamp').textContent = 'Loading...';
+            fetchData();
+        }
+
+        function viewDetails(project) {
+            alert('Detailed view for ' + project + ' will open here');
+        }
+
+        // Initial load
+        fetchData();
+        
+        // Refresh every 60 seconds
+        setInterval(fetchData, 60000);
+    </script>
+</body>
+</html>

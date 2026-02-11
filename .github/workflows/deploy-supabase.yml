@@ -1,0 +1,40 @@
+name: Deploy Supabase Schema
+
+on:
+  push:
+    paths:
+      - 'dashboard/sql/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      
+      - name: Deploy Cosmic Puppies Schema
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_ID: kbdhsddyvjaefuhijrgq
+        run: |
+          supabase link --project-ref $SUPABASE_PROJECT_ID
+          supabase db execute --file dashboard/sql/cosmic_puppies.sql
+      
+      - name: Deploy Tribes Schema
+        run: supabase db execute --file dashboard/sql/tribes.sql
+      
+      - name: Deploy AI Personas Schema
+        run: supabase db execute --file dashboard/sql/ai_personas.sql
+      
+      - name: Deploy Dashboard Schema
+        run: supabase db execute --file dashboard/sql/dashboard.sql
+      
+      - name: Run Data Migration
+        run: |
+          npm install
+          node dashboard/migrate-data.js

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "lead_005",
+    "source": "X/Twitter",
+    "company": "ChainGPT",
+    "handle": "@Chain_GPT",
+    "pain_signal": "AI agents in Web3, automated trading, risk management - need infrastructure",
+    "opportunity": "Cosmic Puppies kan hun AI agent tooling verbeteren",
+    "priority": "high",
+    "status": "identified",
+    "date_found": "2026-02-08T21:35:00Z"
+  },
+  {
+    "id": "lead_006",
+    "source": "X/Twitter", 
+    "company": "OpenServ",
+    "handle": "@openservai",
+    "pain_signal": "Building infrastructure layer for agent economy - website refresh nodig",
+    "opportunity": "Agent economy infrastructure - perfect Cosmic Puppies klant",
+    "priority": "high",
+    "status": "hot_lead",
+    "date_found": "2026-02-08T21:35:00Z"
+  },
+  {
+    "id": "lead_007",
+    "source": "X/Twitter",
+    "company": "Three Sigma",
+    "handle": "@threesigmaxyz",
+    "pain_signal": "AI DeFi Agents, launchpad fee structures - complex Web3 UX",
+    "opportunity": "AI-gedreven DeFi interface optimalisatie",
+    "priority": "medium",
+    "status": "identified",
+    "date_found": "2026-02-08T21:35:00Z"
+  }
+]

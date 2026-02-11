@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "skills": {
+    "linkedin": {
+      "version": "1.0.0",
+      "installedAt": 1770593232710
+    },
+    "linkedin-lead-generation": {
+      "version": "1.0.0",
+      "installedAt": 1770593234376
+    },
+    "affiliate-master": {
+      "version": "1.0.0",
+      "installedAt": 1770593236286
+    },
+    "clawpify": {
+      "version": "0.1.0",
+      "installedAt": 1770593239719
+    },
+    "hyperliquid-trading": {
+      "version": "1.0.0",
+      "installedAt": 1770593243697
+    },
+    "deepseek-trader": {
+      "version": "1.1.0",
+      "installedAt": 1770593245541
+    },
+    "trawl": {
+      "version": "1.0.0",
+      "installedAt": 1770593247697
+    },
+    "prospector": {
+      "version": "1.0.0",
+      "installedAt": 1770593249625
+    },
+    "sales": {
+      "version": "1.0.0",
+      "installedAt": 1770593251970
+    },
+    "crypto-wallet": {
+      "version": "1.0.1",
+      "installedAt": 1770593255825
+    },
+    "predictme": {
+      "version": "1.2.0",
+      "installedAt": 1770593258731
+    },
+    "moltrade": {
+      "version": "1.0.2",
+      "installedAt": 1770593260184
+    },
+    "calendly-automation": {
+      "version": "0.1.1",
+      "installedAt": 1770627927857
+    },
+    "web-scraper": {
+      "version": "1.0.0",
+      "installedAt": 1770627929902
+    },
+    "email-daily-summary": {
+      "version": "0.1.0",
+      "installedAt": 1770627931764
+    },
+    "solana-whale-alert": {
+      "version": "1.0.0",
+      "installedAt": 1770627934262
+    },
+    "apollo-enrichment": {
+      "version": "1.3.0",
+      "installedAt": 1770627938516
+    },
+    "postiz": {
+      "version": "1.0.0",
+      "installedAt": 1770627940389
+    },
+    "twitter-automation": {
+      "version": "0.1.0",
+      "installedAt": 1770627941967
+    },
+    "linkedin-automation": {
+      "version": "1.0.0",
+      "installedAt": 1770627944216
+    },
+    "hubspot": {
+      "version": "1.0.0",
+      "installedAt": 1770627946219
+    },
+    "crypto-price": {
+      "version": "0.2.2",
+      "installedAt": 1770627960729
+    },
+    "solana-pay": {
+      "version": "1.0.0",
+      "installedAt": 1770627963496
+    },
+    "binance-pro": {
+      "version": "1.0.0",
+      "installedAt": 1770627965795
+    },
+    "base-trader": {
+      "version": "1.1.1",
+      "installedAt": 1770627968482
+    },
+    "firecrawl-skills": {
+      "version": "1.0.0",
+      "installedAt": 1770627990865
+    },
+    "reddit-scraper": {
+      "version": "1.0.0",
+      "installedAt": 1770627992760
+    },
+    "serper-v": {
+      "version": "2.0.1",
+      "installedAt": 1770627995213
+    },
+    "playwright-scraper-skill": {
+      "version": "1.2.0",
+      "installedAt": 1770627997965
+    },
+    "social-card-gen": {
+      "version": "1.0.2",
+      "installedAt": 1770628015070
+    },
+    "metricool": {
+      "version": "1.0.0",
+      "installedAt": 1770628017246
+    },
+    "mixpost": {
+      "version": "1.0.0",
+      "installedAt": 1770628019134
+    },
+    "social-content": {
+      "version": "0.1.0",
+      "installedAt": 1770628021399
+    },
+    "mailgun": {
+      "version": "1.0.2",
+      "installedAt": 1770628044409
+    },
+    "basemail": {
+      "version": "1.6.0",
+      "installedAt": 1770628047108
+    },
+    "sendclaw": {
+      "version": "1.0.11",
+      "installedAt": 1770628049185
+    },
+    "activecampaign": {
+      "version": "1.0.0",
+      "installedAt": 1770628051337
+    },
+    "keap": {
+      "version": "1.0.0",
+      "installedAt": 1770628053364
+    },
+    "imap-smtp-email": {
+      "version": "0.0.2",
+      "installedAt": 1770653951794
+    },
+    "email": {
+      "version": "1.1.0",
+      "installedAt": 1770653959424
+    },
+    "playwright-browser-automation": {
+      "version": "2.0.0",
+      "installedAt": 1770654999475
+    },
+    "postgres": {
+      "version": "1.1.0",
+      "installedAt": 1770655001400
+    },
+    "notion": {
+      "version": "1.0.0",
+      "installedAt": 1770655003299
+    },
+    "telegram": {
+      "version": "1.0.1",
+      "installedAt": 1770655005680
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1770655015267
+    },
+    "ffmpeg-cli": {
+      "version": "1.0.0",
+      "installedAt": 1770655017586
+    },
+    "tiktok": {
+      "version": "1.0.0",
+      "installedAt": 1770655019352
+    },
+    "twitter": {
+      "version": "1.1.0",
+      "installedAt": 1770655020896
+    },
+    "x-twitter": {
+      "version": "2.3.1",
+      "installedAt": 1770655031806
+    },
+    "better-notion": {
+      "version": "1.1.0",
+      "installedAt": 1770655033721
+    },
+    "telegram-bot": {
+      "version": "1.0.0",
+      "installedAt": 1770655035424
+    },
+    "notion-cli-agent": {
+      "version": "1.0.0",
+      "installedAt": 1770655037288
+    },
+    "gh": {
+      "version": "0.1.0",
+      "installedAt": 1770655045550
+    },
+    "video-pro": {
+      "version": "1.0.1",
+      "installedAt": 1770655047570
+    },
+    "screen-recorder": {
+      "version": "1.1.0",
+      "installedAt": 1770655049563
+    },
+    "tg": {
+      "version": "0.1.0",
+      "installedAt": 1770655051640
+    },
+    "brave-search": {
+      "version": "1.0.1",
+      "installedAt": 1770655097726
+    },
+    "docker-ctl": {
+      "version": "1.0.0",
+      "installedAt": 1770655099272
+    },
+    "docker-essentials": {
+      "version": "1.0.0",
+      "installedAt": 1770655100814
+    },
+    "terraform-gen": {
+      "version": "1.0.1",
+      "installedAt": 1770655102962
+    },
+    "webhook-gen": {
+      "version": "1.0.1",
+      "installedAt": 1770655133948
+    },
+    "elevenlabs-voice": {
+      "version": "1.0.0",
+      "installedAt": 1770655890870
+    },
+    "screen-vision": {
+      "version": "1.0.1",
+      "installedAt": 1770655893895
+    },
+    "heygen-avatar-lite": {
+      "version": "1.0.0",
+      "installedAt": 1770655895674
+    },
+    "perplexity": {
+      "version": "1.0.0",
+      "installedAt": 1770655906800
+    },
+    "perplexity-deep-search": {
+      "version": "1.0.0",
+      "installedAt": 1770655909032
+    },
+    "vapi": {
+      "version": "0.1.0",
+      "installedAt": 1770655910822
+    },
+    "serper": {
+      "version": "3.0.2",
+      "installedAt": 1770655912579
+    },
+    "calendly": {
+      "version": "1.0.0",
+      "installedAt": 1770655926194
+    },
+    "calendly-quick-book": {
+      "version": "1.0.0",
+      "installedAt": 1770655928325
+    },
+    "openai-image-gen": {
+      "version": "1.0.1",
+      "installedAt": 1770655930268
+    },
+    "ai-image-generation": {
+      "version": "0.1.0",
+      "installedAt": 1770655932186
+    },
+    "copywriter": {
+      "version": "1.1.0",
+      "installedAt": 1770655955036
+    },
+    "social-media-agent": {
+      "version": "1.0.0",
+      "installedAt": 1770655957018
+    },
+    "solana-basics": {
+      "version": "1.0.0",
+      "installedAt": 1770655959698
+    },
+    "solana-dev-skill": {
+      "version": "1.0.0",
+      "installedAt": 1770655962239
+    },
+    "agent-social": {
+      "version": "2.4.0",
+      "installedAt": 1770655971095
+    },
+    "slopesniper": {
+      "version": "1.0.0",
+      "installedAt": 1770656163379
+    },
+    "google-drive": {
+      "version": "1.0.4",
+      "installedAt": 1770755172056
+    },
+    "instagram": {
+      "version": "1.1.0",
+      "installedAt": 1770755261565
+    },
+    "upload-post": {
+      "version": "1.0.0",
+      "installedAt": 1770755315151
+    }
+  }
+}

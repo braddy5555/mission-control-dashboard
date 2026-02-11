@@ -1,0 +1,50 @@
+[
+  {
+    "id": "lead_001",
+    "source": "LinkedIn",
+    "company": "Vcreations Webdesign",
+    "url": "https://nl.linkedin.com/company/vcreations",
+    "location": "IJsselstein, NL",
+    "pain_signal": "Website laten maken, meer bezoekers omzetten in klanten",
+    "opportunity": "AI-gedreven conversie-optimalisatie",
+    "priority": "medium",
+    "status": "identified",
+    "date_found": "2026-02-08T21:30:00Z"
+  },
+  {
+    "id": "lead_002",
+    "source": "LinkedIn",
+    "company": "SEOlab",
+    "url": "https://nl.linkedin.com/company/seolab",
+    "location": "Nederland",
+    "pain_signal": "Webdesign trends 2024, online marketing",
+    "opportunity": "AI Web3 integratie voor klanten",
+    "priority": "medium",
+    "status": "identified",
+    "date_found": "2026-02-08T21:30:00Z"
+  },
+  {
+    "id": "lead_003",
+    "source": "LinkedIn",
+    "company": "De Werkende Website",
+    "url": "https://nl.linkedin.com/company/de-werkende-website",
+    "location": "Nederland",
+    "pain_signal": "Kleuren kiezen, webcreatie, nieuwe website",
+    "opportunity": "AI-gegenereerde design optimalisatie",
+    "priority": "low",
+    "status": "identified",
+    "date_found": "2026-02-08T21:30:00Z"
+  },
+  {
+    "id": "lead_004",
+    "source": "LinkedIn Project",
+    "contact": "Lineke Essed",
+    "url": "https://www.linkedin.com/in/linekeessed/",
+    "role": "Communicatieadviseur, copywriter",
+    "pain_signal": "Migratie nieuwe website, content migratie",
+    "opportunity": "AI content automation voor grote migraties",
+    "priority": "high",
+    "status": "hot_lead",
+    "date_found": "2026-02-08T21:30:00Z"
+  }
+]

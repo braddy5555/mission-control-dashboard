@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "solana-whale-alert": {
+      "version": "1.0.0",
+      "installedAt": 1770590994704
+    },
+    "solana-trader": {
+      "version": "1.1.0",
+      "installedAt": 1770590996441
+    },
+    "linkedin": {
+      "version": "1.0.0",
+      "installedAt": 1770590998398
+    },
+    "calendly-automation": {
+      "version": "0.1.1",
+      "installedAt": 1770591000152
+    },
+    "pinterest": {
+      "version": "1.1.1",
+      "installedAt": 1770591009557
+    },
+    "tiktok": {
+      "version": "1.0.0",
+      "installedAt": 1770591011501
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1770591013436
+    },
+    "x-twitter-trends": {
+      "version": "1.0.1",
+      "installedAt": 1770591015246
+    },
+    "competitive-analysis": {
+      "version": "0.1.0",
+      "installedAt": 1770591025507
+    },
+    "trend-watcher": {
+      "version": "1.0.1",
+      "installedAt": 1770591027393
+    },
+    "postiz": {
+      "version": "1.0.0",
+      "installedAt": 1770591029221
+    },
+    "slopesniper": {
+      "version": "1.0.0",
+      "installedAt": 1770591031104
+    }
+  }
+}
