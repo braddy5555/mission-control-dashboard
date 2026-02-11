@@ -3,7 +3,7 @@ name: Deploy Supabase Schema
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'supabase/migrations/**'
   workflow_dispatch:
