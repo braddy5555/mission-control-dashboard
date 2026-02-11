@@ -1,9 +1,9 @@
 // Tribes Supabase Client
 const { createClient } = require('@supabase/supabase-js');
 
-// Replace these with actual credentials after creating the project
-const TRIBES_URL = process.env.TRIBES_SUPABASE_URL || 'https://YOUR_TRIBES_PROJECT_ID.supabase.co';
-const TRIBES_KEY = process.env.TRIBES_SUPABASE_KEY || 'YOUR_TRIBES_ANON_KEY';
+// Tribes Community Supabase Project
+const TRIBES_URL = process.env.TRIBES_SUPABASE_URL || 'https://shriiexysllxlvjncwol.supabase.co';
+const TRIBES_KEY = process.env.TRIBES_SUPABASE_KEY || 'sb_publishable_eF2FO6BTKf2QX3cDDxWYQQ_6LZGBI66';
 
 const tribesClient = createClient(TRIBES_URL, TRIBES_KEY);
 

@@ -2,39 +2,59 @@ name: Deploy Supabase Schema
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - 'dashboard/sql/**'
+      - 'supabase/migrations/**'
   workflow_dispatch:
+    inputs:
+      project:
+        description: 'Project to deploy (cosmic-puppies or tribes-community)'
+        required: true
+        default: 'cosmic-puppies'
+        type: choice
+        options:
+          - cosmic-puppies
+          - tribes-community
+          - both
 
 jobs:
-  deploy:
+  deploy-cosmic:
     runs-on: ubuntu-latest
+    if: github.event.inputs.project == 'cosmic-puppies' || github.event.inputs.project == 'both' || github.event.inputs.project == ''
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.COSMIC_DB_PASSWORD }}
+      PROJECT_ID: mocalplhdzvuiobltcqu
     steps:
       - uses: actions/checkout@v4
       
-      - name: Setup Supabase CLI
-        uses: supabase/setup-cli@v1
+      - uses: supabase/setup-cli@v1
         with:
           version: latest
+
+      - name: Link Cosmic Puppies Project
+        run: supabase link --project-ref $PROJECT_ID
+
+      - name: Push Schema to Cosmic Puppies
+        run: supabase db push
+
+  deploy-tribes:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.project == 'tribes-community' || github.event.inputs.project == 'both' || github.event.inputs.project == ''
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.TRIBES_DB_PASSWORD }}
+      PROJECT_ID: shriiexysllxlvjncwol
+    steps:
+      - uses: actions/checkout@v4
       
-      - name: Deploy Cosmic Puppies Schema
-        env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          SUPABASE_PROJECT_ID: kbdhsddyvjaefuhijrgq
-        run: |
-          supabase link --project-ref $SUPABASE_PROJECT_ID
-          supabase db execute --file dashboard/sql/cosmic_puppies.sql
-      
-      - name: Deploy Tribes Schema
-        run: supabase db execute --file dashboard/sql/tribes.sql
-      
-      - name: Deploy AI Personas Schema
-        run: supabase db execute --file dashboard/sql/ai_personas.sql
-      
-      - name: Deploy Dashboard Schema
-        run: supabase db execute --file dashboard/sql/dashboard.sql
-      
-      - name: Run Data Migration
-        run: |
-          npm install
-          node dashboard/migrate-data.js
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link Tribes Community Project
+        run: supabase link --project-ref $PROJECT_ID
+
+      - name: Push Schema to Tribes Community
+        run: supabase db push

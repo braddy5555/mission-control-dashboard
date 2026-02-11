@@ -1,9 +1,9 @@
 // Cosmic Puppies Supabase Client
 const { createClient } = require('@supabase/supabase-js');
 
-// Replace these with actual credentials after creating the project
-const COSMIC_URL = process.env.COSMIC_SUPABASE_URL || 'https://YOUR_COSMIC_PROJECT_ID.supabase.co';
-const COSMIC_KEY = process.env.COSMIC_SUPABASE_KEY || 'YOUR_COSMIC_ANON_KEY';
+// Cosmic Puppies Supabase Project
+const COSMIC_URL = process.env.COSMIC_SUPABASE_URL || 'https://mocalplhdzvuiobltcqu.supabase.co';
+const COSMIC_KEY = process.env.COSMIC_SUPABASE_KEY || 'sb_publishable_f-6OeV7Gk6R2skcAX3t2Gg_5pSUBp-0';
 
 const cosmicClient = createClient(COSMIC_URL, COSMIC_KEY);
 
