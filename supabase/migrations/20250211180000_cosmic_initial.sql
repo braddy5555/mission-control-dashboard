@@ -154,3 +154,4 @@ ALTER PUBLICATION supabase_realtime ADD TABLE leads;
 ALTER PUBLICATION supabase_realtime ADD TABLE orders;
 ALTER PUBLICATION supabase_realtime ADD TABLE traffic;
 -- Trigger deployment Wed Feb 11 18:46:54 UTC 2026
+-- Deployment triggered Wed Feb 11 18:55:54 UTC 2026
