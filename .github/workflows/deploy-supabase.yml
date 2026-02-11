@@ -7,52 +7,51 @@ on:
     paths:
       - 'supabase/migrations/**'
   workflow_dispatch:
-    inputs:
-      project:
-        description: 'Project to deploy'
-        required: true
-        default: 'both'
-        type: choice
-        options:
-          - cosmic-puppies
-          - tribes-community
-          - both
 
 jobs:
-  deploy-cosmic:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.event.inputs.project == 'cosmic-puppies' || github.event.inputs.project == 'both' || github.event.inputs.project == ''
     steps:
       - uses: actions/checkout@v4
       
-      - name: Install Supabase CLI
+      - name: Debug Secrets
         run: |
-          curl -fsSL https://github.com/supabase/cli/releases/download/v1.142.0/supabase_1.142.0_linux_amd64.deb -o supabase.deb
-          sudo dpkg -i supabase.deb
-          rm supabase.deb
+          echo "Checking if secrets exist..."
+          if [ -n "${{ secrets.SUPABASE_ACCESS_TOKEN }}" ]; then
+            echo "✓ SUPABASE_ACCESS_TOKEN exists"
+          else
+            echo "✗ SUPABASE_ACCESS_TOKEN missing"
+          fi
+          if [ -n "${{ secrets.COSMIC_DB_PASSWORD }}" ]; then
+            echo "✓ COSMIC_DB_PASSWORD exists"
+          else
+            echo "✗ COSMIC_DB_PASSWORD missing"
+          fi
+          if [ -n "${{ secrets.TRIBES_DB_PASSWORD }}" ]; then
+            echo "✓ TRIBES_DB_PASSWORD exists"
+          else
+            echo "✗ TRIBES_DB_PASSWORD missing"
+          fi
       
-      - name: Deploy Cosmic Puppies Schema
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      
+      - name: Deploy Cosmic Puppies
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
-          supabase link --project-ref mocalplhdzvuiobltcqu --password ${{ secrets.COSMIC_DB_PASSWORD }}
+          echo "Linking Cosmic Puppies project..."
+          supabase link --project-ref mocalplhdzvuiobltcqu --password "${{ secrets.COSMIC_DB_PASSWORD }}"
+          echo "Pushing schema..."
           supabase db push
-
-  deploy-tribes:
-    runs-on: ubuntu-latest
-    if: github.event.inputs.project == 'tribes-community' || github.event.inputs.project == 'both' || github.event.inputs.project == ''
-    steps:
-      - uses: actions/checkout@v4
       
-      - name: Install Supabase CLI
-        run: |
-          curl -fsSL https://github.com/supabase/cli/releases/download/v1.142.0/supabase_1.142.0_linux_amd64.deb -o supabase.deb
-          sudo dpkg -i supabase.deb
-          rm supabase.deb
-      
-      - name: Deploy Tribes Community Schema
+      - name: Deploy Tribes Community
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
-          supabase link --project-ref shriiexysllxlvjncwol --password ${{ secrets.TRIBES_DB_PASSWORD }}
+          echo "Linking Tribes Community project..."
+          supabase link --project-ref shriiexysllxlvjncwol --password "${{ secrets.TRIBES_DB_PASSWORD }}"
+          echo "Pushing schema..."
           supabase db push

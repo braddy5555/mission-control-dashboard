@@ -157,3 +157,4 @@ ALTER PUBLICATION supabase_realtime ADD TABLE traffic;
 -- Deployment triggered Wed Feb 11 18:55:54 UTC 2026
 -- Trigger deployment Wed Feb 11 19:00:20 UTC 2026
 -- Deployment attempt Wed Feb 11 19:06:55 UTC 2026
+-- Debug deployment Wed Feb 11 19:13:15 UTC 2026
